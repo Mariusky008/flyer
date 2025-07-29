@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popey - Présentation Investisseurs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: #1a1a1a;
+        }
+        
+        .page {
+            width: 210mm;
+            height: 390mm;
+            padding: 15mm;
+            margin: 0 auto 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page2 {
+            width: 210mm;
+            height: 297mm;
+            padding: 15mm;
+            margin: 0 auto 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .page2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+       .page3 {
+            width: 210mm;
+            height: 340mm;
+            padding: 15mm;
+            margin: 0 auto 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+        
+        
+        /* RECTO */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .value-proposition {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .value-description {
+            font-size: 16px;
+            color: #64748b;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .point {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.3s ease;
+        }
+        
+        .point:hover {
+            transform: translateY(-2px);
+        }
+        
+        .point-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .point h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+        
+        .point p {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta {
+            background: #1e293b;
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .cta p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 14px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* VERSO */
+        .verso-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .verso-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .verso-subtitle {
+            font-size: 16px;
+            color: #64748b;
+        }
+        
+        .business-model {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9;
+        }
+        
+        .business-model h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .model-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .model-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .model-point-icon {
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        
+        .financials {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .financial-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9;
+        }
+        
+        .financial-section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .financial-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .competitive-advantage {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .competitive-advantage h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .advantage {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #475569;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .team-investment {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .team, .investment {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9;
+        }
+        
+        .team h4, .investment h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .team-member {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .member-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .member-role {
+            color: #64748b;
+            font-size: 12px;
+        }
+        
+        .investment-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .investment-amount {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .investment-use {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        /* PAGES VISUELLES */
+        .visual-page {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .visual-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .visual-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .visual-subtitle {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 400;
+        }
+        
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .visual-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .visual-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .visual-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .visual-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .visual-content p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .visual-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+        
+        .comparison-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .comparison-item.traditional {
+            border-left: 4px solid #ef4444;
+        }
+        
+        .comparison-item.popey {
+            border-left: 4px solid #10b981;
+        }
+        
+        .comparison-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .comparison-content {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .comparison-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-item.traditional h3 {
+            color: #ef4444;
+        }
+        
+        .comparison-item.popey h3 {
+            color: #10b981;
+        }
+        
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .comparison-list li {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .comparison-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .comparison-item.traditional .comparison-list li::before {
+            color: #ef4444;
+        }
+        
+        .comparison-item.popey .comparison-list li::before {
+            color: #10b981;
+        }
+        
+        .single-visual {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 10px;
+        }
+        
+        .single-visual img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .single-visual-content {
+            padding: 15px;
+        }
+        
+        .single-visual-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .single-visual-content p {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .feature-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        @media print {
+            body { margin: 0; }
+            .page { 
+                box-shadow: none; 
+                margin: 0;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- RECTO -->
+    <div class="page3">
+        <div class="header">
+            <div class="logo">POPEY</div>
+            <div class="tagline">Innovation • Croissance • Opportunité</div>
+        </div>
+        
+        <div class="hero-section">
+            <div class="value-proposition">
+                Le premier coffeeshop-incubateur de talents
+            </div>
+            <div class="value-description">
+                Un lieu hybride révolutionnaire où clients et coworkers se rencontrent, créant un écosystème solidaire unique d'entrepreneuriat local et de mécénat participatif.
+            </div>
+        </div>
+        
+        <div class="key-points">
+            <div class="point">
+                <div class="point-icon">☕</div>
+                <h3>Expérience Client Unique</h3>
+                <p>Robot barista, bar à croissants fourrés, services premium (coiffeur, masseur, prothésiste ongulaire, produits en expositions de diverses entrepreneurs locaux...) dans un cadre instagramable.</p>
+            </div>
+            
+            <div class="point">
+                <div class="point-icon">🤝</div>
+                <h3>Mécénat Solidaire</h3>
+                <p>5% de chaque consommation reversés automatiquement au coworker de son choix + possibilité d'investissement direct.</p>
+            </div>
+            
+            <div class="point">
+                <div class="point-icon">💼</div>
+                <h3>Écosystème Coworking</h3>
+                <p>Services professionnels proposés par les coworkers aux clients Popey (de 80 à 100 servives différents) à tarifs préférentiels via mur digital interactif, création de réseau et opportunités business.</p>
+            </div>
+            
+            <div class="point">
+                <div class="point-icon">🚀</div>
+                <h3>Modèle Scalable</h3>
+                <p>Concept reproductible avec 1 seul employé par lieu, rentabilité dès la 1ère année et expansion rapide possible.</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">475k€</div>
+                <div class="stat-label">CA Année 3</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">30%</div>
+                <div class="stat-label">Marge Nette</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2,7M€</div>
+                <div class="stat-label">Bénéfice 5 ans</div>
+            </div>
+<br> <div class="stat">
+                <div class="stat-number">5000 passages/jour</div>
+                <div class="stat-label">Ouverture 1er lieu à St Paul les dax Grand Mail</div>
+            </div>
+           
+        </div>
+        
+      
+    </div>
+    
+    <!-- PAGE VISUELLE 1: COWORKING & TECHNOLOGIE -->
+    <div class="page2">
+        <div class="visual-page">
+            <div class="visual-header">
+                <div class="visual-title">L'Innovation Popey en Images</div>
+                <div class="visual-subtitle">Découvrez notre concept révolutionnaire</div>
+            </div>
+            
+            <div class="visual-grid">
+                <div class="comparison-item traditional">
+                    <img   src="images/Coworking_jpg.jpg" alt="Coworking traditionnel">
+                    <div class="comparison-content">
+                        <h3>Coworking Traditionnel</h3>
+                        <ul class="comparison-list">
+                            <li>Espaces de travail classiques</li>
+                            <li>Pas d'interaction client-coworker</li>
+                            <li>Revenus limités aux clients personnels</li>
+                            <li>Aucun service premium intégré</li>
+                            <li>Pas de mécénat solidaire</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="comparison-item popey">
+                    <img src="images/popey_lieu.png" alt="Coworking Popey">
+                    <div class="comparison-content">
+                        <h3>Coworking Popey</h3>
+                        <ul class="comparison-list">
+                            <li>Écosystème hybride unique</li>
+                            <li>Interaction clients-coworkers quotidien</li>
+                            <li>Revenus multiples diversifiés</li>
+                            <li>Services premium intégrés</li>
+                            <li>Mécénat participatif automatique</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="visual-item">
+                    <img style="width: 100%; height: 300px; object-fit: container;" src="images/mur5.png" alt="Mur interactif Popey">
+                    <div class="visual-content">
+                        <h3>Mur Digital Interactif</h3>
+                        <p>Interface révolutionnaire permettant aux clients de découvrir et sélectionner les services des coworkers à tarifs préférentiels. Un pont numérique entre consommateurs et entrepreneurs.</p>
+                        <div class="visual-highlight">Innovation Technologique</div>
+                    </div>
+                </div>
+                
+                <div class="visual-item">
+                    <img style="width: 100%; height: 300px; object-fit: container;" src="images/pepey3.png" alt="Robot barista Popey">
+                    <div class="visual-content">
+                        <h3>Robot Barista Popey</h3>
+                        <p>Notre robot barista signature offre une expérience café unique et instagramable, réduisant les coûts de personnel tout en créant un élément différenciateur fort.</p>
+                        <div class="visual-highlight">Automatisation Premium</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE VISUELLE 2: LIEUX & AMBIANCE -->
+    <div class="page2">
+        <div class="visual-page">
+            <div class="visual-header">
+                <div class="visual-title">L'Expérience Popey</div>
+                <div class="visual-subtitle">Un cadre pensé pour l'innovation et le bien-être</div>
+            </div>
+            
+            <div class="single-visual">
+                <img src="images/popey_l.png" alt="Espace principal Popey">
+                <div class="single-visual-content">
+                    <h3>Espace Principal - Design & Fonctionnalité</h3>
+                    <p>Un environnement soigneusement conçu qui allie esthétique moderne et fonctionnalité optimale. Chaque élément est pensé pour favoriser la créativité, la productivité et les échanges naturels entre clients et coworkers.</p>
+                    <div class="features-grid">
+                        <div class="feature-tag">Design Instagramable</div>
+                        <div class="feature-tag">Espaces Modulables</div>
+                        <div class="feature-tag">Technologie Intégrée</div>
+                        <div class="feature-tag">Ambiance Premium</div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="visual-grid">
+                <div class="visual-item">
+                    <img src="images/popey_lieu.png" alt="Zone coworking Popey">
+                    <div class="visual-content">
+                        <h3>Zone Coworking Intégrée</h3>
+                        <p>Espaces de travail optimisés où les entrepreneurs peuvent développer leurs projets tout en étant au cœur de l'écosystème Popey, bénéficiant d'une visibilité naturelle auprès de la clientèle.</p>
+                        <div  class="visual-highlight">Synergie Naturelle</div>
+                    </div>
+                </div>
+                
+                <div class="visual-item">
+                    <div class="visual-content" style="padding: 40px; text-align: center; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+                        <h3 style="color: #1e293b; margin-bottom: 20px;">Services Premium Intégrés</h3>
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 15px; font-size: 14px; color: #64748b;">
+                             <div style="padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">Chaque semaine de nouveaux coworkers/services </div>
+                            <div style="padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">Coiffeur, massages, prothésisite ongulaire ... </div>
+                                                        <div style="padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">Découverte de nouveaux talents/projets </div>
+                            <div style="padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">Découverte de produits locaux
+                                </div>
+                        </div><br>
+                        <div class="visual-highlight" style="margin-top: 20px;">Écosystème Complet</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- VERSO -->
+    <div class="page">
+        <div class="verso-header">
+            <div class="verso-title">Modèle d'Affaires & Opportunité</div>
+            <div class="verso-subtitle">Une stratégie éprouvée pour une croissance durable</div>
+        </div>
+        
+        <div class="business-model">
+            <h3>Modèle Économique</h3>
+            <div class="model-points">
+                <div class="model-point">
+                    <div class="model-point-icon"></div>
+                    <div>Ventes café & boissons (80/jour)</div>
+                </div>
+                <div class="model-point">
+                    <div class="model-point-icon"></div>
+                    <div>Croissants fourrés premium (40/jour)</div>
+                </div>
+                <div class="model-point">
+                    <div class="model-point-icon"></div>
+                    <div>Salades & snacking (50/jour)</div>
+                </div>
+                <div class="model-point">
+                    <div class="model-point-icon"></div>
+                    <div>Abonnements coworking (200€HT/mois)</div>
+                </div>
+                <div class="model-point">
+                    <div class="model-point-icon"></div>
+                    <div>Location salles de réunion</div>
+                </div>
+                <div class="model-point">
+                    <div class="model-point-icon"></div>
+                    <div>Services premium intégrés</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="financials">
+            <div class="financial-section">
+                <h4>Projections CA (Pessimiste)</h4>
+                <div class="financial-item">
+                    <span>Année 1</span>
+                    <strong>321k€</strong>
+                </div>
+                <div class="financial-item">
+                    <span>Année 2</span>
+                    <strong>411k€</strong>
+                </div>
+                <div class="financial-item">
+                    <span>Année 3</span>
+                    <strong>475k€</strong>
+                </div>
+                <div class="financial-item">
+                    <span>Rentable dès</span>
+                    <strong>Année 1</strong>
+                </div>
+            </div>
+            
+            <div class="financial-section">
+                <h4>Bénéfices Net par Popey</h4>
+                <div class="financial-item">
+                    <span>Année 1</span>
+                    <strong>100k€</strong>
+                </div>
+                <div class="financial-item">
+                    <span>Année 2</span>
+                    <strong>146k€</strong>
+                </div>
+                <div class="financial-item">
+                    <span>Année 3</span>
+                    <strong>170k€</strong>
+                </div>
+                <div class="financial-item">
+                    <span>Marge nette</span>
+                    <strong>30%</strong>
+                </div>
+            </div>
+        </div>
+        
+        <div class="competitive-advantage">
+            <h3>Avantages Concurrentiels</h3>
+            <div class="advantages">
+                <div class="advantage">☕ Concept hybride unique au monde</div>
+                <div class="advantage">🤖 Robot barista différenciateur</div>
+                <div class="advantage">🤝 Modèle de mécénat solidaire intégré</div>
+                <div class="advantage">💼 Écosystème complet coworking + services</div>
+                <div class="advantage">📱 Mur digital interactif propriétaire</div>
+                <div class="advantage">🎯 1 seul employé = modèle ultra-rentable</div>
+            </div>
+        </div>
+        
+        <div class="team-investment">
+            <div class="team">
+                <h4>Opportunités d'Expansion</h4>
+                <div class="team-member">
+                    <div class="member-name">1 Popey = 170k€/an</div>
+                    <div class="member-role">Bénéfice net à partir de l'année 3</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-name">5 Popey = 1M€/an</div>
+                    <div class="member-role">Objectif année 5</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-name">10 Popey = 2,7M€</div>
+                    <div class="member-role">Bénéfice cumulé sur 5 ans</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-name">Modèle Scalable</div>
+                    <div class="member-role">Reproduction rapide du concept</div>
+                </div>
+            </div>
+            
+            <div class="investment">
+                <h4>Opportunité d'Investissement</h4>
+                <div class="investment-highlight">
+                    <div class="investment-amount">170 000€</div>
+                    <div class="investment-use">Levée de fonds</div>
+                </div>
+                <div style="font-size: 14px; color: #64748b; line-height: 1.5;">
+                    <strong>Utilisation des fonds :</strong><br>
+                    • 30% Aménagement<br>
+                    • 45% Équipements & Technologie<br>
+                    • 5% Marketing & Communication<br>
+                    • 20% Fonds de roulement
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
